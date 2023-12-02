@@ -1,6 +1,6 @@
 <div id="footer">
 	<div id="email" class="contact-column">
-		<a href="##" on:click={() => alert('joelsimon6@gmail.com')} style="cursor: pointer;">
+		<a href={'#'} on:click={() => alert('joelsimon6@gmail.com')} style="cursor: pointer;">
 			<img alt="Mail icon" src="/imgs/icons/mail.svg" />
 		</a>
 	</div>
