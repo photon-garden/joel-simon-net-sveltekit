@@ -41,7 +41,7 @@
 </script>
 
 <a
-	href={'#' + label}
+	href={'#'}
 	class="label"
 	class:active={state === 'selected'}
 	class:label-hidden={state === 'other label selected'}

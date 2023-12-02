@@ -70,7 +70,8 @@
 
 {#if !project.hide}
 	<div class="project {state.classes}" style="display: {state.visible ? 'inline-block' : 'none'}">
-		<a href={state.path} target={state.target}>
+		<!-- <a href={state.path} target={state.target}> -->
+		<a href={'/'} target={state.target}>
 			<div class="preview-container">
 				<img src={project.img} alt={project.name} title={project.name} />
 				<div class="description-container">
