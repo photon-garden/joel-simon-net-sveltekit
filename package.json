@@ -3,9 +3,9 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "npm run build:jade && vite dev",
 		"build": "npm run build:jade && vite build",
-		"build:jade": "jade --obj src/lib/previous-version/jade-cli-options.json --out src/lib/previous-version/compiled-templates src/lib/previous-version/templates",
+		"build:jade": "node src/lib/previousVersion/buildJade.mjs",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",

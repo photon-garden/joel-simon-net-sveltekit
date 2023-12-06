@@ -10,11 +10,11 @@ import path from 'path'
 // Gets the folder that contains the closest package.json.
 const packageJsonDir = packageDirectorySync()
 
-// Read all files in src/lib/previous-version/templates
-const templatesDir = path.join(packageJsonDir, 'src/lib/previous-version/templates')
+// Read all files in src/lib/previousVersion/templates
+const templatesDir = path.join(packageJsonDir, 'src/lib/previousVersion/templates')
 const pathsToTemplates = fs.readdirSync(templatesDir)
     .filter((filePath) => filePath.endsWith('.jade'))
-    .map((filePath) => path.join(packageJsonDir, `src/lib/previous-version/templates/${filePath}`))
+    .map((filePath) => path.join(packageJsonDir, `src/lib/previousVersion/templates/${filePath}`))
 
 for (const pathToTemplate of pathsToTemplates) {
     // Generate the html.
