@@ -61,14 +61,14 @@
 
 	function getHrefToProject(project: Project, kebabCaseName: string): string {
 		if (project.path) {
-			return project.path
+			return project.path + '.html'
 		}
 
 		if (project.externalPath) {
 			return project.externalPath
 		}
 
-		return kebabCaseName
+		return kebabCaseName + '.html'
 	}
 </script>
 
