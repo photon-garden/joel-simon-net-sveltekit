@@ -54,11 +54,3 @@
 		{label}
 	</h3>
 </a>
-
-<style>
-	button {
-		background: none;
-		border: none;
-		cursor: pointer;
-	}
-</style>
