@@ -1,6 +1,10 @@
-# create-svelte
+# joel-simon-net
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Originally created with [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+
+## Working with Jade / Pug templates
+
+
 
 ## Creating a project
 

@@ -4,7 +4,8 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
+		"build": "npm run build:jade && vite build",
+		"build:jade": "jade --obj src/lib/previous-version/jade-cli-options.json --out src/lib/previous-version/compiled-templates src/lib/previous-version/templates",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -14,12 +15,15 @@
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.1.1",
 		"@sveltejs/adapter-static": "^2.0.3",
-		"@sveltejs/kit": "^1.27.6",
-		"@typescript-eslint/eslint-plugin": "^6.13.1",
-		"@typescript-eslint/parser": "^6.13.1",
+		"@sveltejs/kit": "^1.27.7",
+		"@typescript-eslint/eslint-plugin": "^6.13.2",
+		"@typescript-eslint/parser": "^6.13.2",
 		"eslint": "^8.55.0",
-		"eslint-config-prettier": "^9.0.0",
+		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.35.1",
+		"jade": "^1.11.0",
+		"jstransformer-marked": "^1.4.0",
+		"marked": "^11.0.0",
 		"mdsvex": "^0.11.0",
 		"prettier": "^3.1.0",
 		"prettier-plugin-svelte": "^3.1.2",
@@ -29,5 +33,8 @@
 		"typescript": "^5.3.2",
 		"vite": "^4.4.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"pkg-dir": "^8.0.0"
+	}
 }
