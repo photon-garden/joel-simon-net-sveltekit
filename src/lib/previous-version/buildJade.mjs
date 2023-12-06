@@ -4,11 +4,11 @@
 import fs from 'fs'
 import jade from 'jade'
 import jadeOptions from './jadeOptions.mjs'
-import pkgDir from 'pkg-dir'
+import { packageDirectorySync } from 'pkg-dir'
 import path from 'path'
 
 // Gets the folder that contains the closest package.json.
-const packageJsonDir = pkgDir.sync()
+const packageJsonDir = packageDirectorySync()
 
 // Read all files in src/lib/previous-version/templates
 const templatesDir = path.join(packageJsonDir, 'src/lib/previous-version/templates')
