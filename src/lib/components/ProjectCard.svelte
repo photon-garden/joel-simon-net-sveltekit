@@ -17,6 +17,8 @@
 		visible: boolean
 	}
 
+	// We've packaged up all the logic for computing e.g. the classes and
+	// the href to the project in this function so we can easily make it reactive.
 	function getState(project: Project, selectedLabel: string | null): State {
 		const visible = isVisible(project, selectedLabel)
 		const labels = getLabels(project)
@@ -24,7 +26,7 @@
 		const kebabCaseName = project.name.replace(/\s+/g, '-').toLowerCase()
 		const classes = [...labels, kebabCaseName].join(' ')
 
-		const path = getPath(project, kebabCaseName)
+		const path = getHrefToProject(project, kebabCaseName)
 		const target = project.externalPath ? '_blank' : ''
 
 		return {
@@ -37,6 +39,7 @@
 		}
 	}
 
+	// Determines whether to show a project based on the label the user has selected.
 	function isVisible(project: Project, selectedLabel: string | null): boolean {
 		if (selectedLabel == null) {
 			return true
@@ -45,6 +48,7 @@
 		return project.labels.includes(selectedLabel) || project.year?.toString() === selectedLabel
 	}
 
+	// Add year to labels if it exists.
 	function getLabels(project: Project): string[] {
 		// Make a copy of the labels array so we don't mutate the original.
 		const labels = [...project.labels]
@@ -55,23 +59,23 @@
 		return labels
 	}
 
-	function getPath(project: Project, kebabCaseName: string): string {
+	function getHrefToProject(project: Project, kebabCaseName: string): string {
 		if (project.path) {
-			return `${project.path}.html`
+			return project.path
 		}
 
 		if (project.externalPath) {
 			return project.externalPath
 		}
 
-		return `${kebabCaseName}.html`
+		return kebabCaseName
 	}
 </script>
 
 {#if !project.hide}
 	<div class="project {state.classes}" style="display: {state.visible ? 'inline-block' : 'none'}">
-		<!-- <a href={state.path} target={state.target}> -->
-		<a href={'/'} target={state.target}>
+		<a href={state.path} target={state.target}>
+			<!-- <a href={'/'} target={state.target}> -->
 			<div class="preview-container">
 				<img src={project.img} alt={project.name} title={project.name} />
 				<div class="description-container">

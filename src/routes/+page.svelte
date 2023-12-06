@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Label from '$lib/components/Label.svelte'
-	import Project from '$lib/components/Project.svelte'
+	import ProjectCard from '$lib/components/ProjectCard.svelte'
 	import HeadTags from '$lib/components/HeadTags.svelte'
 	import { labels, projects } from './data'
 	import { writable, type Writable } from 'svelte/store'
@@ -27,7 +27,7 @@
 <div id="project-container">
 	{#each projects as project}
 		{#key project.name}
-			<Project {project} {selectedLabel} />
+			<ProjectCard {project} {selectedLabel} />
 		{/key}
 	{/each}
 </div>
