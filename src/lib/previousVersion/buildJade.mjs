@@ -15,10 +15,10 @@ const templatesDir = path.join(packageJsonDir, 'src/lib/previousVersion/template
 const pathsToTemplates = fs.readdirSync(templatesDir)
     .filter((filePath) => filePath.endsWith('.jade'))
     .map((filePath) => path.join(packageJsonDir, `src/lib/previousVersion/templates/${filePath}`))
+console.log(`> Compiling ${pathsToTemplates.length} .jade files in ${templatesDir}.`)
 
 for (const pathToTemplate of pathsToTemplates) {
     // Generate the html.
-    console.log(`Compiling ${pathToTemplate}`)
     const template = fs.readFileSync(pathToTemplate, 'utf8')
     const generateHtml = jade.compile(template, {
         basedir: templatesDir,
@@ -40,8 +40,6 @@ for (const pathToTemplate of pathsToTemplates) {
     fs.mkdirSync(directory, { recursive: true })
 
     // Save the files.
-    console.log(`Writing ${compiledPathWithHtml}`)
     fs.writeFileSync(compiledPathWithHtml, html)
-    console.log(`Writing ${compiledPathWithoutHtml}`)
     fs.writeFileSync(compiledPathWithoutHtml, html)
 }
