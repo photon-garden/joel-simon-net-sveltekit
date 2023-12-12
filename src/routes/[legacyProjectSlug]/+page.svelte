@@ -19,6 +19,6 @@
 		}
 
 		const href = Projects.getHref(project)
-		goto(href)
+		window.location.href = href
 	}
 </script>

@@ -19,11 +19,10 @@ export function load({ params }) {
 
 	const project = projects.find((project) => {
 		const slug = Projects.getSlug(project)
-		console.debug('slug', slug)
-		console.debug('desiredSlug', desiredSlug)
-		console.debug('')
 		return slug === desiredSlug
 	})
+
+	console.debug('project', project)
 
 	if (project == null) {
 		throw error(StatusCodes.notFound)
