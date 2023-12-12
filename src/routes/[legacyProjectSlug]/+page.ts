@@ -22,8 +22,6 @@ export function load({ params }) {
 		return slug === desiredSlug
 	})
 
-	console.debug('project', project)
-
 	if (project == null) {
 		throw error(StatusCodes.notFound)
 	}
