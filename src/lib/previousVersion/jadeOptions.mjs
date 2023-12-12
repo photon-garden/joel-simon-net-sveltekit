@@ -1,3 +1,12 @@
+// This object is passed to Jade when rendering html pages.
+// See the `options` object here: https://jade-lang.com/api.
+//
+// You can also pass local variables to Jade templates by adding them to this object.
+// So, for example, `publicData` is available in all Jade templates.
+//
+// Strongly typed subsets of this data are also re-exported from src/routes/data.ts
+// for use in SvelteKit.
+
 export default {
     publicData: {
         domain: "http://joelsimon.net/",
