@@ -1,5 +1,5 @@
 import type { Project } from '$lib/types'
-import jadeOptions from '$lib/previousVersion/jadeOptions.mjs'
+import jadeConfigAndLocals from '$lib/previousVersion/jadeConfigAndLocals.mjs'
 
-export const labels = Object.keys(jadeOptions.publicData.labels)
-export const projects: Project[] = jadeOptions.publicData.projects
+export const labels = Object.keys(jadeConfigAndLocals.publicData.labels)
+export const projects: Project[] = jadeConfigAndLocals.publicData.projects

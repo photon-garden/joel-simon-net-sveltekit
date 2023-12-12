@@ -3,7 +3,7 @@
 
 import fs from 'fs'
 import jade from 'jade'
-import jadeOptions from './jadeOptions.mjs'
+import jadeConfigAndLocals from './jadeConfigAndLocals.mjs'
 import { packageDirectorySync } from 'pkg-dir'
 import path from 'path'
 
@@ -25,7 +25,7 @@ for (const pathToTemplate of pathsToTemplates) {
         filename: pathToTemplate,
         pretty: true
     })
-    const html = generateHtml(jadeOptions)
+    const html = generateHtml(jadeConfigAndLocals)
 
     // Construct the path to the output files.
     const originalFilename = path.basename(pathToTemplate) // about.jade
