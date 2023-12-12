@@ -11,6 +11,8 @@
 //
 // Strongly typed subsets of this data are also re-exported from src/routes/data.ts
 // for use in SvelteKit.
+//
+// This page is loaded both on the server and in the browser.
 
 export default {
     publicData: {

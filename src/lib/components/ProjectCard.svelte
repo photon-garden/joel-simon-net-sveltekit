@@ -2,6 +2,7 @@
 	import type { Project } from '$lib/types'
 	import Label from '$lib/components/Label.svelte'
 	import type { Writable } from 'svelte/store'
+	import * as Projects from '$lib/Projects'
 
 	export let project: Project
 	export let selectedLabel: Writable<string | null>
@@ -13,7 +14,6 @@
 		classes: string
 		path: string
 		target: string
-		kebabCaseName: string
 		visible: boolean
 	}
 
@@ -23,10 +23,10 @@
 		const visible = isVisible(project, selectedLabel)
 		const labels = getLabels(project)
 
-		const kebabCaseName = project.name.replace(/\s+/g, '-').toLowerCase()
-		const classes = [...labels, kebabCaseName].join(' ')
+		const slug = Projects.getSlug(project)
+		const classes = [...labels, slug].join(' ')
 
-		const path = getHrefToProject(project, kebabCaseName)
+		const path = Projects.getHref(project)
 		const target = project.externalPath ? '_blank' : ''
 
 		return {
@@ -34,8 +34,7 @@
 			labels,
 			classes,
 			path,
-			target,
-			kebabCaseName
+			target
 		}
 	}
 
@@ -57,18 +56,6 @@
 		}
 
 		return labels
-	}
-
-	function getHrefToProject(project: Project, kebabCaseName: string): string {
-		if (project.path) {
-			return project.path + '.html'
-		}
-
-		if (project.externalPath) {
-			return project.externalPath
-		}
-
-		return kebabCaseName + '.html'
 	}
 </script>
 

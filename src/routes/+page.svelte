@@ -2,7 +2,7 @@
 	import Label from '$lib/components/Label.svelte'
 	import ProjectCard from '$lib/components/ProjectCard.svelte'
 	import HeadTags from '$lib/components/HeadTags.svelte'
-	import { labels, projects } from './data'
+	import { labels, projects } from '$lib/data'
 	import { writable, type Writable } from 'svelte/store'
 
 	const selectedLabel: Writable<string | null> = writable(null)
