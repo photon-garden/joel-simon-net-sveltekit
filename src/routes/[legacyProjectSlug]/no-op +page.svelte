@@ -1,13 +1,12 @@
 <script lang="ts">
 	import type { PageData } from './$types'
-	import { goto } from '$app/navigation'
 	import type { Project } from '$lib/types'
 	import * as Projects from '$lib/Projects'
 	import { browser } from '$app/environment'
 
 	export let data: PageData
 
-	$: redirect(data.project)
+	// $: redirect(data.project)
 
 	function redirect(project: Project) {
 		if (!browser) {
@@ -22,3 +21,5 @@
 		window.location.href = href
 	}
 </script>
+
+Redirecting to .html file...
