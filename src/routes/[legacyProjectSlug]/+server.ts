@@ -1,20 +1,18 @@
 import { projects } from '$lib/data'
 import * as Projects from '$lib/Projects'
-import * as ProjectsServer from '$lib/Projects.server.mjs'
 import * as StatusCodes from '$lib/StatusCodes'
 import { error, redirect } from '@sveltejs/kit'
-import { promises as fs } from 'fs'
 
-export const prerender = false
+// export const prerender = false
 
 // Tell SvelteKit about all the legacy projects so it knows to prerender them.
 /** @type {import('./$types').EntryGenerator} */
-// export function entries() {
-// 	return projects.map((project) => {
-// 		const slug = Projects.getSlug(project)
-// 		return { slug, legacyProjectSlug: slug }
-// 	})
-// }
+export function entries() {
+	return projects.map((project) => {
+		const slug = Projects.getSlug(project)
+		return { slug, legacyProjectSlug: slug }
+	})
+}
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET(requestEvent) {
@@ -42,22 +40,22 @@ export async function GET(requestEvent) {
 }
 
 async function getProjectHtml(projectSlug: string): Promise<string> {
+	// import.meta.glob is a Vite function that imports the files at build time.
+	//
+	// Using the file system to read the files at runtime would be more straightforward,
+	// and it worked locally in both dev and production mode but broke on Vercel.
+	//
+	// Details here: https://vitejs.dev/guide/features#glob-import
 	const htmlFiles = import.meta.glob('../../lib/previousVersion/builtTemplates/*.html', {
 		as: 'raw',
 		eager: true
 	})
 	const projectHtmlPath = `../../lib/previousVersion/builtTemplates/${projectSlug}.html`
 	const htmlFile = htmlFiles[projectHtmlPath]
-	console.log('Reading project HTML at', projectHtmlPath)
-	return htmlFile
 
-	try {
-		const projectHtml = await fs.readFile(projectHtmlPath, 'utf8')
-		return projectHtml
-	} catch (originalError) {
-		console.error('Error reading project HTML at', projectHtmlPath)
-		console.error(originalError)
-		// This will usually be a file not found error.
+	if (htmlFile == undefined) {
 		throw error(StatusCodes.notFound)
 	}
+
+	return htmlFile
 }
