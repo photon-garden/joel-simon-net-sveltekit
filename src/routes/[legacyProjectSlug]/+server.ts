@@ -42,8 +42,14 @@ export async function GET(requestEvent) {
 }
 
 async function getProjectHtml(projectSlug: string): Promise<string> {
-	const projectHtmlPath = ProjectsServer.getPathToLegacyHtml(`${projectSlug}.html`)
+	const htmlFiles = import.meta.glob('../../lib/previousVersion/builtTemplates/*.html', {
+		as: 'raw',
+		eager: true
+	})
+	const projectHtmlPath = `../../lib/previousVersion/builtTemplates/${projectSlug}.html`
+	const htmlFile = htmlFiles[projectHtmlPath]
 	console.log('Reading project HTML at', projectHtmlPath)
+	return htmlFile
 
 	try {
 		const projectHtml = await fs.readFile(projectHtmlPath, 'utf8')
