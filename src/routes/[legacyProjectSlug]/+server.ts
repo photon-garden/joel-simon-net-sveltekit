@@ -5,6 +5,8 @@ import * as StatusCodes from '$lib/StatusCodes'
 import { error, redirect } from '@sveltejs/kit'
 import { promises as fs } from 'fs'
 
+export const prerender = false
+
 // Tell SvelteKit about all the legacy projects so it knows to prerender them.
 /** @type {import('./$types').EntryGenerator} */
 // export function entries() {
