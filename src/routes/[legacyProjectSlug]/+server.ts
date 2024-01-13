@@ -16,16 +16,21 @@ export function entries() {
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET(requestEvent) {
+	const pathname = requestEvent.url.pathname
+	console.log('GET', pathname)
+
 	const projectSlug = requestEvent.params.legacyProjectSlug
-	if (projectSlug.endsWith('.html')) {
-		const withoutHtmlExtension = projectSlug.slice(0, -5)
-		throw redirect(StatusCodes.seeOther, `/${withoutHtmlExtension}`)
+	if (pathname.endsWith('.html')) {
+		const withoutHtmlExtension = pathname.slice(0, -5)
+		console.log('Redirecting to', withoutHtmlExtension)
+		throw redirect(StatusCodes.seeOther, withoutHtmlExtension)
 	}
 
 	const html = await getProjectHtml(projectSlug)
 
 	const headers = new Headers()
 	const sizeInBytes = new Blob([html]).size
+	console.log(`Found ${sizeInBytes} bytes of HTML for ${projectSlug}.`)
 	headers.set('content-length', sizeInBytes.toString())
 	headers.set('content-type', 'text/html')
 
@@ -36,6 +41,7 @@ export async function GET(requestEvent) {
 
 async function getProjectHtml(projectSlug: string): Promise<string> {
 	const projectHtmlPath = ProjectsServer.getPathToLegacyHtml(`${projectSlug}.html`)
+	console.log('Reading project HTML at', projectHtmlPath)
 
 	try {
 		const projectHtml = await fs.readFile(projectHtmlPath, 'utf8')
