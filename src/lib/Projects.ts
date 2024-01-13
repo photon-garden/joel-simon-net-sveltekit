@@ -6,15 +6,13 @@ export function getSlug(project: Project): string {
 }
 
 export function getHref(project: Project): string {
-	const slug = getSlug(project)
-
 	if (project.path) {
-		return project.path + '.html'
+		return project.path
 	}
 
 	if (project.externalPath) {
 		return project.externalPath
 	}
 
-	return slug + '.html'
+	return getSlug(project)
 }
