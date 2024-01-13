@@ -9,12 +9,12 @@ export function getHref(project: Project): string {
 	const slug = getSlug(project)
 
 	if (project.path) {
-		return project.path + '.html'
+		return project.path // + '.html'
 	}
 
 	if (project.externalPath) {
 		return project.externalPath
 	}
 
-	return slug + '.html'
+	return slug // + '.html'
 }
