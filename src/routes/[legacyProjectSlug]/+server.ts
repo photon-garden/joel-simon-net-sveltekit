@@ -3,8 +3,6 @@ import * as Projects from '$lib/Projects'
 import * as StatusCodes from '$lib/StatusCodes'
 import { error, redirect } from '@sveltejs/kit'
 
-// export const prerender = false
-
 // Tell SvelteKit about all the legacy projects so it knows to prerender them.
 /** @type {import('./$types').EntryGenerator} */
 export function entries() {
@@ -43,7 +41,7 @@ async function getProjectHtml(projectSlug: string): Promise<string> {
 	// import.meta.glob is a Vite function that imports the files at build time.
 	//
 	// Using the file system to read the files at runtime would be more straightforward,
-	// and it worked locally in both dev and production mode but broke on Vercel.
+	// and it worked locally in both dev and production mode, but broke on Vercel.
 	//
 	// Details here: https://vitejs.dev/guide/features#glob-import
 	const htmlFiles = import.meta.glob('../../lib/previousVersion/builtTemplates/*.html', {
