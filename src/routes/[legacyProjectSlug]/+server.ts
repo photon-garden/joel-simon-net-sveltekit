@@ -7,12 +7,12 @@ import { promises as fs } from 'fs'
 
 // Tell SvelteKit about all the legacy projects so it knows to prerender them.
 /** @type {import('./$types').EntryGenerator} */
-export function entries() {
-	return projects.map((project) => {
-		const slug = Projects.getSlug(project)
-		return { slug, legacyProjectSlug: slug }
-	})
-}
+// export function entries() {
+// 	return projects.map((project) => {
+// 		const slug = Projects.getSlug(project)
+// 		return { slug, legacyProjectSlug: slug }
+// 	})
+// }
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET(requestEvent) {
