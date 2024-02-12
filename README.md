@@ -1,4 +1,4 @@
-# joel-simon-net
+# joel-simon.net
 
 Originally created with [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
@@ -6,7 +6,9 @@ Originally created with [`create-svelte`](https://github.com/sveltejs/kit/tree/m
 
 Pug templates are in src/lib/previousVersion/templates. The buildJade.mjs script compiles them to HTML in src/lib/previousVersion/builtTemplates. The file `routes/[legacyProjectSlug]/+server.ts` handles serving the HTML.
 
-## Previous 
+## Previous version
+
+There's a backup of some of the previous version's code in `/previousVersionBackup`.
 
 ## Developing
 
