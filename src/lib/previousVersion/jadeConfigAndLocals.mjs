@@ -30,7 +30,7 @@ export default {
             {
                 name: 'About',
                 labels: [],
-                img: 'imgs/lamp-me-square.jpg',
+                img: 'imgs/lamp_me_square.jpg',
                 year: undefined,
                 hide: false,
                 description: "Hi, I'm Joel",
@@ -54,7 +54,7 @@ export default {
             {
                 name: 'Artbreeder Interviews',
                 labels: ['generative', 'web', 'video'],
-                img: 'imgs/ab-interviews-icon.png',
+                img: 'imgs/ab_interviews_icon.png',
                 year: 2020,
                 hide: false,
                 description:
@@ -105,7 +105,7 @@ export default {
             {
                 name: 'Coral Video',
                 labels: ['generative', 'code', 'video'],
-                img: 'imgs/coral-video/icon.jpg',
+                img: 'imgs/coral_video/icon.jpg',
                 year: 2019,
                 hide: false,
                 description: 'A music video of my Corals project.'
@@ -122,7 +122,7 @@ export default {
             {
                 name: 'Dimensions of Dialogue',
                 labels: ['generative', 'code'],
-                img: 'imgs/dod/binary-model-10.png',
+                img: 'imgs/dod/binary_model_10.png',
                 img2: 'imgs/dod/grid-3x3.jpg',
                 year: 2018,
                 hide: false,
@@ -179,7 +179,7 @@ export default {
             {
                 name: 'Evolving Floorplans',
                 labels: ['generative', 'code'],
-                img: 'imgs/evo-plans/icon.png',
+                img: 'imgs/evo_plans/icon.png',
                 path: '/evo_floorplans',
                 year: 2017,
                 description: 'Floorplans optimized with a custom genetic algorithm.'
@@ -194,7 +194,7 @@ export default {
             {
                 name: 'Desk Lamp 1',
                 labels: ['lighting'],
-                img: 'imgs/desk-lamp-1b/DSCF4294.jpg',
+                img: 'imgs/desk_lamp_1b/DSCF4294.jpg',
                 year: 2016
             },
             {
@@ -288,14 +288,14 @@ export default {
             {
                 name: 'Small-talk Robot',
                 labels: ['code'],
-                img: 'imgs/smalltalk/smalltalk-square.jpg',
+                img: 'imgs/smalltalk/smalltalk_square.jpg',
                 year: 2012,
                 description: 'A robot that will make small talk with the viewer.'
             },
             {
                 name: 'Mosaic Table',
                 labels: [],
-                img: 'imgs/mosaic-table/table-square.jpg',
+                img: 'imgs/mosaic-table/table_square.jpg',
                 year: 2007
             }
         ]
